@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>TripleS.NET</RootNamespace>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageId>Triple-S.NET</PackageId>
+    <Company>Researchscape</Company>
+    <Authors>Brad Patton</Authors>
+    <Description>.NET Support for Triple-S XML</Description>
+    <Copyright>2018</Copyright>
+  </PropertyGroup>
+
+</Project>
