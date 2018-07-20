@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripleS.NET", "Triple-S.NET\TripleS.NET.csproj", "{4504E268-B6E9-4913-A762-3C7DE52DB53B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripleS.Tests", "TripleS.Tests\TripleS.Tests.csproj", "{0FBE01C8-3CEE-4DA8-99B7-8804E2BBC553}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{4504E268-B6E9-4913-A762-3C7DE52DB53B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4504E268-B6E9-4913-A762-3C7DE52DB53B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4504E268-B6E9-4913-A762-3C7DE52DB53B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FBE01C8-3CEE-4DA8-99B7-8804E2BBC553}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FBE01C8-3CEE-4DA8-99B7-8804E2BBC553}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FBE01C8-3CEE-4DA8-99B7-8804E2BBC553}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FBE01C8-3CEE-4DA8-99B7-8804E2BBC553}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
