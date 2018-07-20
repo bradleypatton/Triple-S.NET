@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sss PUBLIC "-//triple-s//DTD Survey Interchange v2.0//EN"
+                     "http://www.triple-s.org/dtd/sss_v20.dtd">
+
+<!-- Triple-S version 2.0 Metadata File Example 1 (Fixed format raw data) -->
+
+<sss version="2.0" modes="interview analysis">
+<!-- introducing modes used to specialise texts at Q2 -->
+
+<date>14 April 2005</date>
+<time>16:00</time>
+<origin>SurveyProg v1.3.05</origin>
+<user>User Site</user>
+
+<survey>
+    <name>SP5201-1</name>
+    <title>Historic House Exit Survey<br/>First Wave</title>
+      
+    <record ident="V">
+         
+        <variable ident="1" type="quantity" use="serial">
+        <!-- serial variable with long name -->
+            <name>RESPONDENT_ID</name>
+            <label>Respondent ID</label>
+            <position start="1" finish="6"/>
+            <values>
+                <range from="000001" to="999999" />
+            </values>
+        </variable>
+
+        <variable ident="2" type="date">
+        <!-- date variable -->
+            <name>Q1.a</name>
+            <label>Date of visit</label>
+            <position start="7" finish="14"/>
+            <values>
+                <range from="20050101" to="20051231" />
+            </values>
+        </variable>
+
+        <variable ident="3" type="time">
+        <!-- time variable -->
+            <name>Q1.b</name>
+            <label>Time of visit</label>
+            <position start="15" finish="20"/>
+            <!-- implicit range from="000000" to="235959" -->
+        </variable>
+
+        <variable ident="4" type="single">
+            <name>Q2</name>
+            <label>Frequency of visit
+                <text mode="interview">Have you visited here before?</text>
+                <text mode="analysis">Visited before</text>
+            </label>
+            <!-- specialised texts -->
+            <position start="21" />
+            <values>
+                <value code="0">No, this is the first visit</value>
+                <value code="1">I have visited before within the year</value>
+                <value code="2">I visited before that</value>
+            </values>
+            <!-- value list including code 0 -->
+        </variable>
+
+        <variable ident="5" type="multiple">
+            <name>Q3</name>
+            <label>Attractions visited</label>
+            <position start="22" finish="30" />
+            <values>
+                <value code="1">Sherwood Forest</value>
+                <value code="2">Nottingham Castle</value>
+                <value code="3">&quot;Friar Tuck&quot; Restaurant</value>
+                <!-- quotation marks within label fields -->
+                <value code="4">&quot;Maid Marion&quot; Cafe</value>
+                <value code="5">Mining museum</value>
+                <value code="9">Other</value>
+            </values>
+        </variable>
+         
+        <variable ident="6" type="character">
+            <name>Q3.a</name>
+            <label>Other attractions visited</label>
+            <position start="31" finish="60" />
+            <size>30</size>
+        </variable>
+
+        <variable ident="7" type="single">
+            <name>Q4</name>
+            <label>Overall impression</label>
+            <position start="61" />
+            <values>
+                <!-- scores -->
+                <value code="1" score="2">Very Good</value>
+                <value code="2" score="1">Good</value>
+                <value code="3" score="0">OK</value>
+                <value code="4" score="-1">Poor</value>
+                <value code="5" score="-2">Very poor</value>
+                <value code="9">DK/NS</value>
+                <!-- missing score -->
+            </values>
+        </variable>
+
+        <variable ident="8" type="multiple">
+            <name>Q5</name>
+            <label>Two favourite attractions visited</label>
+            <position start="62" finish="63" />
+            <spread subfields="2" />
+            <!--same answer list as Q3-->
+            <values>
+                <value code="1">Sherwood Forest</value>
+                <value code="2">Nottingham Castle</value>
+                <value code="3">&quot;Friar Tuck&quot; Restaurant</value>
+                <value code="4">&quot;Maid Marion&quot; Cafe</value>
+                <value code="5">Mining museum</value>
+                <value code="9">Other</value>
+            </values>
+        </variable>
+         
+        <variable ident="9" type="quantity">
+            <name>Q6</name>
+            <label>Miles travelled</label>
+            <position start="64" finish="66" />
+            <values>
+                <range from="1" to="499" />
+                <value code="500">500 or more</value>
+                <value code="999">Not stated</value>
+            </values>
+            <!-- labelled values on a quantity -->
+        </variable>
+
+        <variable ident="10" type="logical">
+            <name>Q7</name>
+            <label>Would come again</label>
+            <position start="67" />
+        </variable>
+         
+        <variable ident="11" type="single" format="literal">
+            <name>Q8</name>
+            <label>When is that most likely to be</label>
+            <position start="68" />
+            <filter>Q7</filter>
+            <!-- filter -->
+            <values>
+                <value code="A">Within 3 months</value>
+                <value code="B">Between 3 months and 1 year</value>
+                <value code="C">More than 1 years time</value>
+            </values>
+            <!-- literal code values -->
+        </variable>
+
+        <variable ident="999999" type="quantity" use="weight">
+        <!-- weight variable -->
+        <!-- large magnitude ident -->
+            <name>WT</name>
+            <label>Case weight</label>
+            <position start="69" finish="75"/>
+            <values>
+                <range from="0.0000" to="99.9999"/>
+            </values>
+        </variable>
+
+    </record>
+
+</survey>
+
+</sss>

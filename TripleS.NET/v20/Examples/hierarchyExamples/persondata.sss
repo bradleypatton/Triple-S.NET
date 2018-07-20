@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sss PUBLIC "-//triple-s//DTD Survey Interchange v2.0//EN"
+                     "http://www.triple-s.org/dtd/sss_v20.dtd">
+
+<!-- Part 2: The Person Survey -->
+
+<sss version="2.0">
+
+<date>14 April 2005</date>
+<time>16:31</time>
+<origin>SurveyProg v1.3.05</origin>
+<user>User Site</user>
+
+<survey>
+    <name>PR9012-PERSON</name>
+    <title>Regional Travel Survey<br/>Persons</title>
+      
+    <record ident="V">
+        <variable ident="1" type="quantity">
+            <name>hnumber</name>
+            <label>Household</label>
+            <position start="1" finish="6"/>
+            <values>
+                <range from="000001" to="999999" />
+            </values>
+        </variable>
+        <variable ident="2" type="quantity" use="serial">
+            <name>pnumber</name>
+            <label>Person</label>
+            <position start="1" finish="8"/>
+            <values>
+                <range from="00000001" to="99999919" />
+            </values>
+        </variable>
+        <variable ident="3" type="single">
+            <name>pgender</name>
+            <label>Gender</label>
+            <position start="9"/>
+            <values>
+                <value code="1">Male</value>
+                <value code="2">Female</value>
+            </values>
+        </variable>
+        <variable ident="4" type="single">
+            <name>page</name>
+            <label>Age</label>
+            <position start="10"/>
+            <values>
+                <value code="1">Under 21</value>
+                <value code="2">21 to 45</value>
+                <value code="3">46 to 65</value>
+                <value code="4">Over 65</value>
+            </values>
+        </variable>
+    </record>
+</survey>
+</sss>

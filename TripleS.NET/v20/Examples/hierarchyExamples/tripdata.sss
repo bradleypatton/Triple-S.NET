@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sss PUBLIC "-//triple-s//DTD Survey Interchange v2.0//EN"
+                     "http://www.triple-s.org/dtd/sss_v20.dtd">
+
+<!-- Part 3: The Trip Survey -->
+
+<sss version="2.0">
+
+<date>14 April 2005</date>
+<time>16:32</time>
+<origin>SurveyProg v1.3.05</origin>
+<user>User Site</user>
+
+<survey>
+    <name>PR9012-TRIP</name>
+    <title>Regional Travel Survey<br/>Trips</title>
+      
+    <record ident="V">
+         
+        <variable ident="1" type="quantity">
+            <name>pnumber</name>
+            <label>Person</label>
+            <position start="1" finish="8"/>
+            <values>
+                <range from="00000001" to="99999919" />
+            </values>
+        </variable>
+
+        <variable ident="2" type="single">
+            <name>tpurpose</name>
+            <label>Trip purpose</label>
+            <position start="9"/>
+            <values>
+                <value code="1">Social, domestic, pleasure</value>
+                <value code="2">To or from place of work</value>
+                <value code="3">Business</value>
+            </values>
+        </variable>
+
+        <variable ident="3" type="single">
+            <name>tmode</name>
+            <label>Modes of travel</label>
+            <position start="10" />
+            <values>
+                <value code="1">Car or van driver</value>
+                <value code="2">Car or van passenger</value>
+                <value code="3">Bus</value>
+                <value code="4">Train</value>
+                <value code="5">Cycle</value>
+                <value code="6">Other</value>
+            </values>
+        </variable>
+
+    </record>
+</survey>
+</sss>

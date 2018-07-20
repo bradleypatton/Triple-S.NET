@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sss PUBLIC "-//triple-s//DTD Survey Interchange v2.0//EN"
+                     "http://www.triple-s.org/dtd/sss_v20.dtd">
+
+<!-- Triple-S version 2.0 Hierarchy File Example -->
+
+<!-- Part 1: the Hierarchical Definition -->
+<!-- The example defines a hierarchical definition for three (household, person and trip) surveys. -->
+<!-- Each house has zero, one or more people associated with it and each person has zero, one or more trips associated with them. Indirectly, each trip is also associated with a household (the household of the person making the trip). -->
+
+<sss version="2.0">
+
+<date>14 April 2005</date>
+<time>16:30</time>
+<origin>SurveyProg v1.3.05</origin>
+<user>User Site</user>
+    
+<hierarchy>
+    <level ident="hhold" href="householddata.sss" />
+    <level ident="person" href="persondata.sss">
+        <parent level="hhold" linkvar="hnumber" ordered="yes" />
+    </level>
+    <level ident="trip" href="tripdata.sss">
+        <parent level="person" linkvar="pnumber" ordered="yes" />
+    </level>
+</hierarchy>
+
+</sss>

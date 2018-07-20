@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<xs:schema xmlns="http://tempuri.org/sss_v11" elementFormDefault="qualified" targetNamespace="http://tempuri.org/sss_v11" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="br">
+    <xs:complexType />
+  </xs:element>
+  <xs:element name="sss">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="date" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="time" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="origin" />
+        <xs:element minOccurs="0" maxOccurs="1" ref="user" />
+        <xs:element ref="survey" />
+      </xs:sequence>
+      <xs:attribute name="version" type="xs:string" use="required" />
+      <xs:attribute name="options" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="date" type="xs:string" />
+  <xs:element name="time" type="xs:string" />
+  <xs:element name="origin" type="xs:string" />
+  <xs:element name="user" type="xs:string" />
+  <xs:element name="survey">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="1" ref="title" />
+        <xs:element ref="record" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="title">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="br" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="record">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="variable" />
+      </xs:sequence>
+      <xs:attribute name="ident" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="variable">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name" />
+        <xs:element ref="label" />
+        <xs:element ref="position" />
+        <xs:choice minOccurs="0" maxOccurs="1">
+          <xs:sequence>
+            <xs:element minOccurs="0" maxOccurs="1" ref="spread" />
+            <xs:element ref="values" />
+          </xs:sequence>
+          <xs:element ref="size" />
+        </xs:choice>
+      </xs:sequence>
+      <xs:attribute name="ident" type="xs:string" use="required" />
+      <xs:attribute name="type" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:NMTOKEN">
+            <xs:enumeration value="single" />
+            <xs:enumeration value="multiple" />
+            <xs:enumeration value="quantity" />
+            <xs:enumeration value="character" />
+            <xs:enumeration value="logical" />
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:string" />
+  <xs:element name="label">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="br" />
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="position">
+    <xs:complexType>
+      <xs:attribute name="start" type="xs:string" use="required" />
+      <xs:attribute name="finish" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="spread">
+    <xs:complexType>
+      <xs:attribute name="subfields" type="xs:string" use="required" />
+      <xs:attribute name="width" type="xs:string" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="size" type="xs:string" />
+  <xs:element name="values">
+    <xs:complexType>
+      <xs:choice>
+        <xs:element minOccurs="1" maxOccurs="unbounded" ref="value" />
+        <xs:sequence>
+          <xs:element ref="range" />
+          <xs:element minOccurs="0" maxOccurs="unbounded" ref="value" />
+        </xs:sequence>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="value">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="br" />
+      </xs:choice>
+      <xs:attribute name="code" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="range">
+    <xs:complexType>
+      <xs:attribute name="from" type="xs:string" use="required" />
+      <xs:attribute name="to" type="xs:string" use="required" />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sss PUBLIC "-//triple-s//DTD Survey Interchange v2.0//EN"
+                     "http://www.triple-s.org/dtd/sss_v20.dtd">
+
+<!-- Part 2: The Household Survey -->
+
+<sss version="2.0">
+
+<date>14 April 2005</date>
+<time>16:31</time>
+<origin>SurveyProg v1.3.05</origin>
+<user>User Site</user>
+
+<survey>
+    <name>PR9012-HOUSEHOLD</name>
+    <title>Regional Travel Survey<br/>Households</title>
+      
+    <record ident="V">
+         
+        <variable ident="1" type="quantity" use="serial">
+        <!-- the linkvar has the attribute use="serial" -->
+            <name>hnumber</name>
+            <label>Household</label>
+            <position start="1" finish="6"/>
+            <values>
+                <range from="000001" to="999999" />
+            </values>
+        </variable>
+
+        <variable ident="2" type="single">
+            <name>htype</name>
+            <label>House type</label>
+            <position start="7"/>
+            <values>
+                <value code="1">Flat or Maisonette</value>
+                <value code="2">Terraced House</value>
+                <value code="3">Semi-detached House</value>
+                <value code="4">Detached House</value>
+            </values>
+        </variable>
+
+        <variable ident="3" type="single">
+            <name>hlocation</name>
+            <label>Household location</label>
+            <position start="8"/>
+            <values>
+                <value code="1">North</value>
+                <value code="2">South</value>
+                <value code="3">East</value>
+                <value code="4">West</value>
+            </values>
+        </variable>
+
+    </record>
+</survey>
+</sss>

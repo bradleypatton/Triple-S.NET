@@ -1,0 +1,117 @@
+<!-- triple-s.dtd                                                     -->
+<!-- Standalone XML version 1.1                                       -->
+<!-- June 2001                                                       -->
+<!-- ===========================================================      -->
+<!-- An XML definition for moving surveys between packages            -->
+<!-- on various hardware and software platforms.                      -->
+<!-- ===========================================================      -->
+<!-- This DTD has been produced by the triple-s group                 -->
+<!-- (Keith Hughes, Steve Jenkins and Geoff Wright).                  -->
+<!-- For further information on the triple-s group visit              -->
+<!-- the web site at http://www.triple-s.org.                         -->
+<!-- ===========================================================      -->
+<!-- Public identifier:                                               -->
+<!--   -//triple-s//DTD Survey Interchange v1.1//EN                   -->
+<!-- Public URL:                                                      -->
+<!--   http://www.triple-s.org/dtd/sss_v11.dtd                        -->
+<!-- ===========================================================      -->
+<!--                                                                  -->
+<!-- Version history:                                                 -->
+<!--                                                                  -->
+<!--   1.0             Original non-XML triple-s standard             -->
+<!--   1.1   Feb 2000  XML version based on non-XML 1.1 standard      -->
+<!--   1.1a  Apr 2001  type attribute (variable element) lower case   -->
+<!--                   code attribute (value element) REQUIRED        -->
+<!---                  size element definition moved within DTD       -->
+<!--   1.1b  Jun 2001  added formatted texts (with break element)     -->
+<!--                     for title, label and value elements          -->
+<!--                                                                  -->
+<!-- ===========================================================      -->
+<!--                                                                  -->
+<!--          BEGINNING OF ACTUAL DOCUMENT TYPE DEFINITION            -->
+<!--                                                                  -->
+
+<!--temporary parameter entities                                      -->
+<!ENTITY % vartype "single |
+                    multiple |
+                    quantity |
+                    character |
+                    logical" >
+
+<!-- formatted text with breaks element and entity                    -->
+<!ELEMENT br EMPTY>
+<!ENTITY % formatted_text "(#PCDATA | br)*" >
+
+<!-- TOP LEVEL                                                        -->
+<!-- =========                                                        -->
+<!--                                                                  -->
+<!ELEMENT sss (date?, time?, origin?, user?, survey)>
+<!ATTLIST sss version CDATA #REQUIRED
+              options CDATA #IMPLIED>
+
+<!-- DOCUMENT DESCRIPTION                                             -->
+<!-- ====================                                             -->
+<!--                                                                  -->
+    <!ELEMENT date (#PCDATA)>
+
+    <!ELEMENT time (#PCDATA)>
+
+    <!ELEMENT origin (#PCDATA)>
+
+    <!ELEMENT user (#PCDATA)>
+
+<!--                                                                  -->
+<!-- SURVEY DESCRIPTION                                               -->
+<!-- ==================                                               -->
+<!--                                                                  -->
+    <!ELEMENT survey (title?, record)>
+
+       <!ELEMENT title %formatted_text;>
+
+<!--                                                                  -->
+<!-- RECORD DESCRIPTION                                               -->
+<!-- ==================                                               -->
+<!--                                                                  -->
+        <!ELEMENT record (variable+)>
+        <!ATTLIST record ident CDATA #REQUIRED>
+
+<!--                                                                  -->
+<!-- VARIABLE DESCRIPTION                                             -->
+<!-- ====================                                             -->
+<!--                                                                  -->
+            <!ELEMENT variable (name, label, position,
+                    ((spread?, values) | size)?)>
+            <!ATTLIST variable ident CDATA #REQUIRED
+                               type (%vartype;) #REQUIRED>
+
+                <!ELEMENT name (#PCDATA)>
+
+                <!ELEMENT label %formatted_text;>
+
+                <!ELEMENT position EMPTY>
+                <!ATTLIST position start CDATA #REQUIRED
+                                   finish CDATA #IMPLIED>
+
+                <!ELEMENT spread EMPTY>
+                <!ATTLIST spread subfields CDATA #REQUIRED
+                                 width CDATA #IMPLIED>
+
+                <!ELEMENT size (#PCDATA)>
+
+<!--                                                                  -->
+<!-- VALUES DESCRIPTION                                               -->
+<!-- ==================                                               -->
+<!--                                                                  -->
+
+                <!ELEMENT values (value+ | (range, value*))>
+
+                    <!ELEMENT value %formatted_text;>
+                    <!ATTLIST value code CDATA #REQUIRED>
+
+                    <!ELEMENT range EMPTY>
+                    <!ATTLIST range from CDATA #REQUIRED
+                                    to CDATA #REQUIRED>
+
+<!--                                                                  -->
+<!-- END OF DOCUMENT TYPE DEFINITION                                  -->
+
