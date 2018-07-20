@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripleS.NET", "Triple-S.NET\TripleS.NET.csproj", "{4504E268-B6E9-4913-A762-3C7DE52DB53B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripleS.NET", "TripleS.NET\TripleS.NET.csproj", "{4504E268-B6E9-4913-A762-3C7DE52DB53B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripleS.Tests", "TripleS.Tests\TripleS.Tests.csproj", "{0FBE01C8-3CEE-4DA8-99B7-8804E2BBC553}"
 EndProject
