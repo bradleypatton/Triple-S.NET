@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TripleS.NET", "TripleS.NET\TripleS.NET.csproj", "{E4F4C7EA-B1B8-4904-9954-83B734579762}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TripleS.Tests", "TripleS.Tests\TripleS.Tests.csproj", "{76F288C3-E2BE-48DB-B736-40912EE6B5D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4F4C7EA-B1B8-4904-9954-83B734579762}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4F4C7EA-B1B8-4904-9954-83B734579762}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4F4C7EA-B1B8-4904-9954-83B734579762}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4F4C7EA-B1B8-4904-9954-83B734579762}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76F288C3-E2BE-48DB-B736-40912EE6B5D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76F288C3-E2BE-48DB-B736-40912EE6B5D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76F288C3-E2BE-48DB-B736-40912EE6B5D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76F288C3-E2BE-48DB-B736-40912EE6B5D1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6E64F1BC-18E4-401E-887D-ECE63C4F8292}
+	EndGlobalSection
+EndGlobal
