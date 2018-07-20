@@ -1,8 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-
+    <RootNamespace>TripleS.Tests</RootNamespace>
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -13,11 +13,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Triple-S.NET\TripleS.NET.csproj" />
+    <EmbeddedResource Include="v20\example1.sss" />
+    <EmbeddedResource Include="v20\example2.sss" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="v20\" />
+    <ProjectReference Include="..\TripleS.NET\TripleS.NET.csproj" />
   </ItemGroup>
 
 </Project>
