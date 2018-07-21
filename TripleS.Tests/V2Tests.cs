@@ -7,8 +7,8 @@ using TripleS.NET;
 namespace TripleS.Tests {
 	[TestClass]
 	public class V2Tests {
-		S3MetaData example1;
-		S3MetaData example2;
+		S3Root example1;
+		S3Root example2;
 
 		[TestInitialize()]
 		public void Initialize() {
@@ -98,7 +98,7 @@ namespace TripleS.Tests {
 
 		[TestMethod]
 		public void TestCreateSurvey() {
-			var s3 = new S3MetaData() {
+			var s3 = new S3Root() {
 				Origin = "Triple-S.Net",
 				Date = DateTime.Now.ToShortDateString(),
 				Time = DateTime.Now.ToShortTimeString(),

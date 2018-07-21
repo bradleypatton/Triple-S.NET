@@ -6,12 +6,12 @@ using System.Xml.Serialization;
 namespace TripleS.NET {
 
 	/// <summary>
-	/// The S3MetaData object represents the root and is used to encapsulate the entire specification document.
+	/// The S3Root object represents the root and is used to encapsulate the entire specification document.
 	/// It contains a mandatory attribute version and optional xml:lang, languages and modes attributes.
 	/// </summary>
 	[Serializable]
 	[XmlRoot("sss")]
-	public class S3MetaData {
+	public class S3Root {
 
 		/// <summary>
 		/// The version attribute is used to indicate the version of the Triple-S standard that applies to this specification. 
