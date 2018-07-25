@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using TripleS.NET;
@@ -67,8 +68,8 @@ namespace TripleS.Tests {
 			var v1 = record.Variables[0];
 			Assert.AreEqual("RESPONDENT_ID", v1.Name);
 			Assert.AreEqual("Respondent ID", v1.Label.GetText());
-			Assert.AreEqual("1", v1.Position.Start);
-			Assert.AreEqual("6", v1.Position.Finish);
+			Assert.AreEqual(1, v1.Position.Start);
+			Assert.AreEqual(6, v1.Position.Finish);
 
 			Assert.AreEqual(S3Type.Quantity, v1.Type);
 			Assert.AreEqual(S3Use.Serial, v1.Use);
@@ -76,8 +77,7 @@ namespace TripleS.Tests {
 			var range = v1.Values[0] as S3Range;
 			Assert.AreEqual("000001", range.From);
 			Assert.AreEqual("999999", range.To);
-
-
+			
 			var v4 = record.Variables[3];
 			Assert.AreEqual(S3Type.Single, v4.Type);
 			var values = v4.Values;
@@ -85,7 +85,11 @@ namespace TripleS.Tests {
 			var val1 = values[0] as S3Value;
 			Assert.AreEqual("0", val1.Code);
 
+			var v6 = record.Variables[5];
+			Assert.AreEqual(30, v6.Size);
 
+			var v8 = record.Variables[7];
+			Assert.AreEqual(2, v8.Spread.Subfields);
 		}
 
 		[TestMethod]
@@ -94,7 +98,6 @@ namespace TripleS.Tests {
 
 			Assert.IsTrue(xml.Length > 0);
 		}
-
 
 		[TestMethod]
 		public void TestCreateSurvey() {
@@ -122,7 +125,6 @@ namespace TripleS.Tests {
 
 			Assert.IsTrue(xml.Length > 0);
 
-
 			// Get a copy of the survey from the serialized string and check some random properties.
 			var s3import = S3Serializer.FromString(xml);
 			Assert.AreEqual("A", s3import.Survey.Record.ID);
@@ -130,8 +132,35 @@ namespace TripleS.Tests {
 			// Does the xml rountrip to the same xml?
 			var xmlCopy = S3Serializer.ToString(s3import);
 			Assert.AreEqual(xml, xmlCopy);
-
 		}
 
+		[TestMethod]
+		public void DataReadTests() {
+
+			var file = @"C:\Dev\Triple-S.NET\TripleS.NET\v20\Examples\example1.asc";
+			S3FixedFormatReader dataReader = new S3FixedFormatReader(example1, file);
+
+			int recordCount = 0;
+			SortedList<string, string> record;
+			while ((record = dataReader.ReadNextRecord()) != null) {
+				recordCount++;
+			}
+
+			Assert.AreEqual(3, recordCount);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException), "Triple-S data format must be fixed")]
+		public void InvalidFormatExceptionTest() {
+			var file = @"C:\Dev\Triple-S.NET\TripleS.NET\v20\Examples\example1.asc";
+			S3FixedFormatReader dataReader = new S3FixedFormatReader(example2, file);
+		}
+
+		[TestMethod]
+		[ExpectedException(typeof(ArgumentException), "Triple-S data file not found")]
+		public void MissingFileExceptionTest() {
+			var file = @"C:\Dev\Triple-S.NET\TripleS.NET\v20\Examples\test.asc";
+			S3FixedFormatReader dataReader = new S3FixedFormatReader(example1, file);
+		}
 	}
 }

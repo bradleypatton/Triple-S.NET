@@ -82,7 +82,7 @@ namespace TripleS.NET {
 		/// in the data for the variable. The size_specification must be a positive integer; 
 		/// there is no upper limit to the size_specification.
 		/// </summary>
-		[XmlAttribute("size")]
+		[XmlElement("size")]
 		[DefaultValue(0)]
 		public int Size { get; set; }
 
