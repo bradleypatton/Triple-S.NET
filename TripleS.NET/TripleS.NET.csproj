@@ -7,8 +7,11 @@
     <PackageId>Triple-S.NET</PackageId>
     <Company>Researchscape</Company>
     <Authors>Brad Patton</Authors>
-    <Description>.NET Support for Triple-S XML</Description>
+    <Description>Triple-S.NET is a set of classes to support serialization/deserialization of Triple-S XML</Description>
     <Copyright>2018</Copyright>
+    <PackageLicenseUrl>https://github.com/bradleypatton/Triple-S.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/bradleypatton/Triple-S.NET</PackageProjectUrl>
+    <PackageTags>Triple-S XML Survey</PackageTags>
   </PropertyGroup>
 
 </Project>
