@@ -69,23 +69,27 @@ namespace TripleS.Tests {
 			Assert.AreEqual("Respondent ID", v1.Label.GetText());
 			Assert.AreEqual("1", v1.Position.Start);
 			Assert.AreEqual("6", v1.Position.Finish);
-
 			Assert.AreEqual(S3Type.Quantity, v1.Type);
 			Assert.AreEqual(S3Use.Serial, v1.Use);
+		}
 
+		[TestMethod]
+		public void TestVariableRange() {
+			var v1 = example1.Survey.Record.Variables[0];
 			var range = v1.Values[0] as S3Range;
 			Assert.AreEqual("000001", range.From);
 			Assert.AreEqual("999999", range.To);
+		}
 
+		[TestMethod]
+		public void TestVariableValues() {
 
-			var v4 = record.Variables[3];
+			var v4 = example1.Survey.Record.Variables[3];
 			Assert.AreEqual(S3Type.Single, v4.Type);
 			var values = v4.Values;
 			Assert.AreEqual(3, values.Count);
 			var val1 = values[0] as S3Value;
 			Assert.AreEqual("0", val1.Code);
-
-
 		}
 
 		[TestMethod]
@@ -95,18 +99,68 @@ namespace TripleS.Tests {
 			Assert.IsTrue(xml.Length > 0);
 		}
 
-
 		[TestMethod]
 		public void TestCreateSurvey() {
+			S3Root s3 = GetS3Survey();
+
+			// Check some random properties.
+			Assert.AreEqual("1", s3.Survey.Version);
+			Assert.AreEqual("A", s3.Survey.Record.ID);
+		}
+
+		[TestMethod]
+		public void TestSerializeSurveyString() {
+			S3Root s3 = GetS3Survey();
+
+			string xml = S3Serializer.ToString(s3);
+			Assert.IsTrue(xml.Length > 0);
+
+			// Write out XML for review
+			File.WriteAllText(@"S3Test.xml", xml);
+		}
+
+		[TestMethod]
+		public void TestSerializeSurveyFile() {
+
+			S3Root s3 = GetS3Survey();
+			string filename = "example1.xml";
+			
+			S3Serializer.ToFile(filename, s3);
+			var s3Import = S3Serializer.FromFile(filename);
+			Assert.AreEqual("A", s3Import.Survey.Record.ID);
+		}
+
+		[TestMethod]
+		public void TestRoundtripSurvey() {
+			S3Root s3 = GetS3Survey();
+			string xml = S3Serializer.ToString(s3);
+
+			// Get a copy of the survey from the serialized string and check some random properties.
+			var s3Import = S3Serializer.FromString(xml);
+			Assert.AreEqual("A", s3Import.Survey.Record.ID);
+
+			// Does the xml rountrip to the same xml?
+			var xmlCopy = S3Serializer.ToString(s3Import);
+			Assert.AreEqual(xml, xmlCopy);
+		}
+
+		private S3Root GetS3Survey() {
 			var s3 = new S3Root() {
 				Origin = "Triple-S.Net",
 				Date = DateTime.Now.ToShortDateString(),
 				Time = DateTime.Now.ToShortTimeString(),
 			};
 
+			var s3Style = new S3Style {
+				Href = "http:\\www.example.com",
+				Value = "text-align:center"
+			};
+			s3.Style = new S3Style[1];
+			s3.Style[0] = s3Style;
+
 			var survey = s3.Survey;
 			survey.Name = "Triple-S Tests";
-			survey.Version = "1;";
+			survey.Version = "1";
 
 			var record = survey.Record;
 			record.ID = "A";
@@ -115,23 +169,7 @@ namespace TripleS.Tests {
 			variable.AddValue("1", "Red");
 			variable.AddValue("2", "blue");
 			variable.AddValue("3", "Green");
-
-			string xml = S3Serializer.ToString(s3);
-
-			File.WriteAllText(@"C:\dev\surveys\S3Test.xml", xml);
-
-			Assert.IsTrue(xml.Length > 0);
-
-
-			// Get a copy of the survey from the serialized string and check some random properties.
-			var s3import = S3Serializer.FromString(xml);
-			Assert.AreEqual("A", s3import.Survey.Record.ID);
-
-			// Does the xml rountrip to the same xml?
-			var xmlCopy = S3Serializer.ToString(s3import);
-			Assert.AreEqual(xml, xmlCopy);
-
+			return s3;
 		}
-
 	}
 }
