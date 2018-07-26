@@ -12,7 +12,7 @@ namespace TripleS.NET {
 		/// the largest category value specified for the multiple.
 		/// </summary>
 		[XmlAttribute("subfields")]
-		public string Subfields { get; set; }
+		public int Subfields { get; set; }
 
 		/// <summary>
 		/// The width attribute may be omitted when used in conjunction with fixed Data Files if 
@@ -22,6 +22,6 @@ namespace TripleS.NET {
 		/// specified as it cannot be determined from the overall width defined in the position element. 
 		/// </summary>
 		[XmlAttribute("width")]
-		public string Width { get; set; }
+		public int Width { get; set; }
 	}
 }
