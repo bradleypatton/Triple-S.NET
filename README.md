@@ -1,5 +1,7 @@
 # Triple-S.NET
 
+[![NuGet](https://img.shields.io/nuget/v/Triple-S.NET.svg)](https://www.nuget.org/packages/Triple-S.NET/)  [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+
 A .NET Library to support Triple-S Survey serialization.
 
 The library consists of a set of C# classes to aid in serialization and deserialization of Triple-S XML. The class names and properties match the Triple-S specficiation but with C# styles applied.
