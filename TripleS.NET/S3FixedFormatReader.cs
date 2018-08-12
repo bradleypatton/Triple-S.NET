@@ -66,15 +66,41 @@ namespace TripleS.NET {
 			var fields = s3Root.Survey.Record.Variables;
 			var maxLength = fields.Max(f => f.Position.Finish);
 
+			if (line.Length > 0 && line.Length < maxLength) {
+				throw new InvalidDataException("File contains a line shorter than the specified variable length");
+			}
+
 			foreach (var field in fields) {
 				// Get the value at the specified postion. 
 				// TODO: add error checking if line is shorter than fields maxlength
 				var finish = field.Position.Finish == 0 ? field.Position.Start + 1 : field.Position.Finish;
-				var length = finish - field.Position.Start;
-				var value = line.Substring(field.Position.Start-1, length);
+				var length = finish - field.Position.Start + 1;
+
+				// Call safe substring to protect against malformed files or incorrect field specifications
+				var value = SafeSubstring(line, field.Position.Start-1, length);
 				record.Add(field.ID, value);
 			}
 			return record;
+		}
+
+		/// <summary>
+		/// Returns a substring from the string. The substring starts at a specified character position and has a specified length.
+		/// This version protects against ArgumentOutOfRangeException that the default Substring will throw if the parameters are out of range.
+		/// </summary>
+		/// <param name="s">Source string</param>
+		/// <param name="startIndex">The zero-based starting character position of a substring in this instance.</param>
+		/// <param name="length">The number of characters in the substring.</param>
+		/// <returns>String</returns>
+		private string SafeSubstring(string s, int startIndex, int length) {
+			if (s.Length >= (startIndex + length)) {
+				return s.Substring(startIndex, length);
+			} else {
+				if (s.Length > startIndex) {
+					return s.Substring(startIndex);
+				} else {
+					return string.Empty;
+				}
+			}
 		}
 	}
 }
