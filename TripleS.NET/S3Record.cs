@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -75,6 +76,22 @@ namespace TripleS.NET {
 			};
 			Variables.Add(field);
 			return field;
+		}
+
+		/// <summary>
+		/// Return the variable identified as the record identifier.
+		/// </summary>
+		/// <returns>S3Variable or null if no match</returns>
+		public S3Variable GetSerialVariable() {
+			return Variables.FirstOrDefault(v => v.Use == S3Use.Serial);
+		}
+
+		/// <summary>
+		/// Return the variable identified as the weight variable.
+		/// </summary>
+		/// <returns>S3Variable or null if no match</returns>
+		public S3Variable GetWeightVariable() {
+			return Variables.FirstOrDefault(v => v.Use == S3Use.Weight);
 		}
 	}
 }
