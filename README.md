@@ -48,5 +48,25 @@ variable.AddValue("3", "Green");
 string xml = S3Serializer.ToString(s3);
 ```
 
+Read a fixed format data file and dump to screen (using [LINQPad](https://www.linqpad.net/))
+```C#
+var xml = @"C:\Surveys\180215\180215.xml";
+var data = @"C:\Surveys\180215\180215.dat";
+int count = 0;
+var s3root = S3Serializer.FromFile(xml);
+using (var reader = new S3FixedFormatReader(s3root, data)) {
+	SortedList<string, string> record;
+	
+	while ((record = reader.ReadNextRecord()) != null) {
+		foreach (var s3var in s3root.Survey.Record.Variables) {
+			var value = record[s3var.ID];
+			$"{s3var.ID} = {value}".Dump();
+		}
+		count++;
+	}	
+}
+count.Dump();
+```
+
 ## References
 * [Triple-S Specification](http://www.triple-s.org/)
