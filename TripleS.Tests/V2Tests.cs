@@ -18,6 +18,10 @@ namespace TripleS.Tests {
 
 			resource = assembly.GetManifestResourceStream("TripleS.Tests.v20.example2.sss");
 			example2 = S3Serializer.FromStream(resource);
+
+			foreach (var s3Var in example2.Survey.Record.Variables) {
+				// Do something
+			}
 		}
 
 		[TestMethod]
@@ -60,6 +64,18 @@ namespace TripleS.Tests {
 		}
 
 		[TestMethod]
+		public void TestSerialVariable() {
+			var serial = example1.Survey.Record.GetSerialVariable();
+			Assert.AreEqual("1", serial.ID);
+		}
+
+		[TestMethod]
+		public void TestWeightVariable() {
+			var weight = example1.Survey.Record.GetWeightVariable();
+			Assert.AreEqual("999999", weight.ID);
+		}
+
+		[TestMethod]
 		public void TestVariables() {
 			var record = example1.Survey.Record;
 			Assert.AreEqual(12, record.Variables.Count);
@@ -67,8 +83,8 @@ namespace TripleS.Tests {
 			var v1 = record.Variables[0];
 			Assert.AreEqual("RESPONDENT_ID", v1.Name);
 			Assert.AreEqual("Respondent ID", v1.Label.GetText());
-			Assert.AreEqual("1", v1.Position.Start);
-			Assert.AreEqual("6", v1.Position.Finish);
+			Assert.AreEqual(1, v1.Position.Start);
+			Assert.AreEqual(6, v1.Position.Finish);
 			Assert.AreEqual(S3Type.Quantity, v1.Type);
 			Assert.AreEqual(S3Use.Serial, v1.Use);
 		}
