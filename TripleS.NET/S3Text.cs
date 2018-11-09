@@ -29,7 +29,7 @@ namespace TripleS.NET {
 		/// </summary>
 		/// <returns>String</returns>
 		public string GetText() {
-			return string.Join(" ", Text);
+			return Text == null ? "" : string.Join(" ", Text);
 		}
 	}
 }
