@@ -73,7 +73,7 @@ namespace TripleS.NET {
 			foreach (var field in fields) {
 				// Get the value at the specified postion. 
 				// TODO: add error checking if line is shorter than fields maxlength
-				var finish = field.Position.Finish == 0 ? field.Position.Start + 1 : field.Position.Finish;
+				var finish = field.Position.Finish == 0 ? field.Position.Start : field.Position.Finish;
 				var length = finish - field.Position.Start + 1;
 
 				// Call safe substring to protect against malformed files or incorrect field specifications
