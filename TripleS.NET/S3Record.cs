@@ -7,31 +7,32 @@ using System.Xml.Serialization;
 namespace TripleS.NET {
 
 	/// <summary>
-	/// Mandatory. One <record> element starts after <survey> (or any survey description 
+	/// Mandatory. One &lt;record> element starts after &lt;survey> (or any survey description 
 	/// elements if present). It is used to introduce the definition of the variables 
 	/// that are held in the Data File.
 	/// </summary>
 	public class S3Record {
 		/// <summary>
 		/// The record_id is any single character A to Z or a to z. The record_id can be 
-		/// used in conjunction with the variable_id(see the <variable> element later) to 
+		/// used in conjunction with the variable_id (see the &lt;variable> element later) to 
 		/// generate a unique variable name on import.
 		/// </summary>
 		[XmlAttribute("ident")]
 		public string ID { get; set; }
 
 		/// <summary>
-		/// The optional data_format can be used to declare the format of the Data File 
-		/// that corresponds to this specification. The default format is fixed format fields
+		/// The optional format attribute can be used to declare the format of the Data File 
+		/// that corresponds to this specification. The default format is fixed format fields.
+		/// If specified it must be of a <c>S3Format</c> enum value.
 		/// </summary>
 		[XmlAttribute("format")]
 		[DefaultValue(S3Format.Fixed)]
 		public S3Format DataFormat { get; set; }
 
 		/// <summary>
-		/// The optional data_encoding can be used to declare the encoding method used for the 
-		/// Data File. The default encoding is “Windows-1252”, but if specified then it must 
-		/// be one of S3Encoding
+		/// The optional encoding attribute can be used to declare the encoding method used for the 
+		/// Data File. The default encoding is “Windows1252”, but if specified then it must 
+		/// be one of <c>S3Encoding</c> enum values.
 		/// </summary>
 		[XmlAttribute("encoding")]
 		[DefaultValue(S3Encoding.Windows1252)]

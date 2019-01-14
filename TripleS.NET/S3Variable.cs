@@ -4,6 +4,9 @@ using System.Xml;
 using System.Xml.Serialization;
 
 namespace TripleS.NET {
+	/// <summary>
+	/// <c>S3Variable</c> represents a data point inside of a survey.
+	/// </summary>
 	public partial class S3Variable {
 
 		/// <summary>
@@ -87,7 +90,7 @@ namespace TripleS.NET {
 		public int Size { get; set; }
 
 		/// <summary>
-		/// Optional and only used with multiple type variables. The <spread> element indicates 
+		/// Optional and only used with multiple type variables. The &lt;spread> element indicates 
 		/// that the data values are coded as a series of category values in consecutive subfields
 		/// (rather than the default multiple format of a series of 0/1 characters). 
 		/// </summary>

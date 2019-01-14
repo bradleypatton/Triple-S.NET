@@ -2,14 +2,17 @@
 using System.Xml.Serialization;
 
 namespace TripleS.NET {
+	/// <summary>
+	/// This class defines values inside of a <c>S3Variable</c>
+	/// </summary>
 	public class S3Value {
 
 		/// <summary>
-		/// The  code_value for a variable of type single depend on whether the attribute format="literal" 
+		/// The code_value for a variable of type single depend on whether the attribute format="literal" 
 		/// is specified on the variable element. If this attribute is not present or format="numeric" is 
 		/// specified, then these codes must all be positive integers or the value zero. However when 
 		/// format="literal" is specified, all code_values (even those that look like numbers) are treated as
-		/// case-sensitive characters, and the<range> element cannot be used. 
+		/// case-sensitive characters, and the &lt;range> element cannot be used. 
 		/// </summary>
 		[XmlAttribute("code")]
 		public string Code { get; set; }

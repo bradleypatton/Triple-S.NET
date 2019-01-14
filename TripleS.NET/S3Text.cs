@@ -2,11 +2,20 @@
 using System.Xml.Serialization;
 
 namespace TripleS.NET {
+	/// <summary>
+	/// Class to hold the parsed br elements
+	/// </summary>
 	public class br {
 	}
 
+	/// <summary>
+	/// Represents text elements in a <c>S3Survey</c> (eg title or variable labels). 
+	/// </summary>
 	public class S3Text {
 
+		/// <summary>
+		/// Language code of the text string.
+		/// </summary>
 		[XmlAttribute(Form = System.Xml.Schema.XmlSchemaForm.Qualified, Namespace = "http://www.w3.org/XML/1998/namespace")]
 		public string lang { get; set; }
 
@@ -18,9 +27,15 @@ namespace TripleS.NET {
 		[XmlAttribute("mode")]
 		public string Mode { get; set; }
 
+		/// <summary>
+		/// Any br elements
+		/// </summary>
 		[XmlElement("br")]
 		public br[] Items { get; set; }
 
+		/// <summary>
+		/// Raw text string array. GetText() is the recommended method to use.
+		/// </summary>
 		[XmlText()]
 		public string[] Text { get; set; }
 

@@ -23,10 +23,10 @@ namespace TripleS.NET {
 		[DefaultValue("3.0")]
 		public string Version { get; set; } = "3.0";
 
-		/// <summary>
-		/// The xml:lang attribute is optional and is used to indicate the default
-		/// language of texts within the remainder of the Metadata File.
-		/// </summary>
+		// <summary>
+		// The xml:lang attribute is optional and is used to indicate the default
+		// language of texts within the remainder of the Metadata File.
+		// </summary>
 		//[XmlAttribute(AttributeName = "lang", Namespace = "http://www.w3.org/XML/1998/namespace", DataType = "language")]
 		//public string Lang { get; set; }
 

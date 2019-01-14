@@ -37,7 +37,7 @@ namespace TripleS.NET {
 		public S3Text Title { get; set; } = new S3Text();
 
 		/// <summary>
-		/// Mandatory. One <record> element starts after <survey> (or any survey description 
+		/// Mandatory. One &lt;record> element starts after &lt;survey> (or any survey description 
 		/// elements if present). It is used to introduce the definition of the variables 
 		/// that are held in the Data File.
 		/// </summary>

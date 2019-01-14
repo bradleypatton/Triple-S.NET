@@ -1,6 +1,9 @@
 ﻿using System.Xml.Serialization;
 
 namespace TripleS.NET {
+	/// <summary>
+	/// Enum of encoding values for the Data File.
+	/// </summary>
 	public enum S3Encoding {
 		/// <summary>
 		/// The Data File consists of 8-bit characters from the Windows-1252 character set. 
@@ -19,6 +22,9 @@ namespace TripleS.NET {
 		UTF8
 	}
 
+	/// <summary>
+	///	Enum of data formats of the Data File.
+	/// </summary>
 	public enum S3Format {
 		/// <summary>
 		/// The data representation is fixed format fields. For data in fixed format 
@@ -30,12 +36,15 @@ namespace TripleS.NET {
 		/// <summary>
 		/// The data representation is comma-separated values, using one field for each
 		/// variable, with data values similar to the fixed format. Note that for data 
-		/// in csv format the <position> element refers to the field number. 
+		/// in csv format the &lt;position> element refers to the field number. 
 		/// </summary>
 		[XmlEnum("csv")]
 		CSV
 	}
 
+	/// <summary>
+	/// Enum of <c>S3Variable</c> types.
+	/// </summary>
 	public enum S3Type {
 		/// <summary>
 		/// Categorical with at most one response allowed
@@ -80,6 +89,9 @@ namespace TripleS.NET {
 		Time
 	}
 
+	/// <summary>
+	/// Enum of <c>S3Variable</c> uses.
+	/// </summary>
 	public enum S3Use {
 		/// <summary>
 		/// This variable contains the serial number (or other identification field) for the record. 
@@ -97,6 +109,9 @@ namespace TripleS.NET {
 		Weight
 	}
 
+	/// <summary>
+	/// Enum of <c>S3Variable</c> formats
+	/// </summary>
 	public enum S3VariableFormat {
 		/// <summary>
 		/// All the codes for this variable are to be treated as characters, rather than numbers. 

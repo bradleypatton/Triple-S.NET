@@ -1,6 +1,11 @@
 ﻿﻿using System.Xml.Serialization;
 
 namespace TripleS.NET {
+	/// <summary>
+	/// Optional and only used with multiple type variables. The spread element indicates that the data values 
+	/// are coded as a series of category values in consecutive subfields (rather than the default multiple 
+	/// format of a series of 0/1 characters). 
+	/// </summary>
 	public class S3Spread {
 
 		/// <summary>
