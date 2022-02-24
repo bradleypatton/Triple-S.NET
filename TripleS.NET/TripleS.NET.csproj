@@ -10,7 +10,7 @@
     <Authors>Brad Patton</Authors>
     <Description>Triple-S.NET is a set of classes to support serialization/deserialization of Triple-S XML</Description>
     <Copyright>2022</Copyright>
-    <PackageLicenseUrl>https://github.com/bradleypatton/Triple-S.NET/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageProjectUrl>https://github.com/bradleypatton/Triple-S.NET</PackageProjectUrl>
     <PackageTags>Triple-S XML Survey</PackageTags>
     <Version>1.1.0</Version>
