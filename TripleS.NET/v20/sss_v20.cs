@@ -389,7 +389,7 @@ namespace TripleS.v20 {
 
 		private title titleField;
 
-		private record recordField;
+		private sssRecord recordField;
 
 		/// <remarks/>
 		public string name {
@@ -422,7 +422,7 @@ namespace TripleS.v20 {
 		}
 
 		/// <remarks/>
-		public record record {
+		public sssRecord record {
 			get {
 				return this.recordField;
 			}
@@ -476,7 +476,7 @@ namespace TripleS.v20 {
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://tempuri.org/sss_v20")]
 	[System.Xml.Serialization.XmlRootAttribute(Namespace = "http://tempuri.org/sss_v20", IsNullable = false)]
-	public partial class record {
+	public partial class sssRecord {
 
 		private variable[] variableField;
 
@@ -488,7 +488,7 @@ namespace TripleS.v20 {
 
 		private string skipField;
 
-		public record() {
+		public sssRecord() {
 			this.formatField = recordFormat.@fixed;
 		}
 

@@ -132,7 +132,7 @@
 
 		private title titleField;
 
-		private record recordField;
+		private sssRecord recordField;
 
 		/// <remarks/>
 		public title title {
@@ -145,7 +145,7 @@
 		}
 
 		/// <remarks/>
-		public record record {
+		public sssRecord rec {
 			get {
 				return this.recordField;
 			}
@@ -198,7 +198,7 @@
 	[System.ComponentModel.DesignerCategoryAttribute("code")]
 	[System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true, Namespace = "http://tempuri.org/sss_v11")]
 	[System.Xml.Serialization.XmlRootAttribute(Namespace = "http://tempuri.org/sss_v11", IsNullable = false)]
-	public partial class record {
+	public partial class sssRecord {
 
 		private variable[] variableField;
 
