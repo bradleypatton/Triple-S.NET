@@ -95,11 +95,7 @@ namespace TripleS.NET {
 			if (s.Length >= (startIndex + length)) {
 				return s.Substring(startIndex, length);
 			} else {
-				if (s.Length > startIndex) {
-					return s.Substring(startIndex);
-				} else {
-					return string.Empty;
-				}
+				return s.Length > startIndex ? s[startIndex..] : string.Empty;
 			}
 		}
 	}

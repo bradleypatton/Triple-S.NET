@@ -1,21 +1,21 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-	<GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFramework>net6.0</TargetFramework>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <RootNamespace>TripleS.NET</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>Triple-S.NET</PackageId>
     <Company>Researchscape</Company>
     <Authors>Brad Patton</Authors>
     <Description>Triple-S.NET is a set of classes to support serialization/deserialization of Triple-S XML</Description>
-    <Copyright>2019</Copyright>
+    <Copyright>2022</Copyright>
     <PackageLicenseUrl>https://github.com/bradleypatton/Triple-S.NET/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/bradleypatton/Triple-S.NET</PackageProjectUrl>
     <PackageTags>Triple-S XML Survey</PackageTags>
-    <Version>1.0.4</Version>
-    <AssemblyVersion>1.0.4.0</AssemblyVersion>
-    <FileVersion>1.0.4.0</FileVersion>
+    <Version>1.1.0</Version>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
+    <FileVersion>1.1.0.0</FileVersion>
     <PackageReleaseNotes>Include documentation</PackageReleaseNotes>
   </PropertyGroup>
 </Project>

@@ -14,9 +14,8 @@ namespace TripleS.NET {
 		/// <param name="filename">Full filepath to a Triple-S XML file.</param>
 		/// <returns>S3Root</returns>
 		public static S3Root FromFile(string filename) {
-			using (var stream = File.Open(filename, FileMode.Open)) {
-				return FromStream(stream);
-			}
+			using var stream = File.Open(filename, FileMode.Open);
+			return FromStream(stream);
 		}
 
 		/// <summary>
@@ -25,9 +24,8 @@ namespace TripleS.NET {
 		/// <param name="xml">Complete Triple-S XML string</param>
 		/// <returns>S3Root</returns>
 		public static S3Root FromString(string xml) {
-			using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(xml))) {
-				return FromStream(stream);
-			}
+			using var stream = new MemoryStream(Encoding.UTF8.GetBytes(xml));
+			return FromStream(stream);
 		}
 
 		/// <summary>
@@ -37,9 +35,8 @@ namespace TripleS.NET {
 		/// <returns>S3Root</returns>
 		public static S3Root FromStream(Stream stream) {
 			var xs = new XmlSerializer(typeof(S3Root));
-			using (var rd = new StreamReader(stream)) {
-				return (S3Root)xs.Deserialize(rd);
-			}
+			using var rd = new StreamReader(stream);
+			return (S3Root)xs.Deserialize(rd);
 		}
 
 		/// <summary>
@@ -48,9 +45,8 @@ namespace TripleS.NET {
 		/// <param name="filename">Fully qualified file to save the XML to</param>
 		/// <param name="metaData">S3Root object to serialize</param>
 		public static void ToFile(string filename, S3Root metaData) {
-			using (var writer = new StreamWriter(filename)) {
-				ToWriter(writer, metaData);
-			}
+			using var writer = new StreamWriter(filename);
+			ToWriter(writer, metaData);
 		}
 
 		/// <summary>
@@ -59,10 +55,9 @@ namespace TripleS.NET {
 		/// <param name="metaData">S3Root object to serialize</param>
 		/// <returns>String of XML</returns>
 		public static string ToString(S3Root metaData) {
-			using (var writer = new StringWriter()) {
-				ToWriter(writer, metaData);
-				return writer.ToString();
-			}
+			using var writer = new StringWriter();
+			ToWriter(writer, metaData);
+			return writer.ToString();
 		}
 
 		/// <summary>
