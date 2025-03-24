@@ -17,6 +17,7 @@
   <ItemGroup>
     <EmbeddedResource Include="v20\example1.sss" />
     <EmbeddedResource Include="v20\example2.sss" />
+    <EmbeddedResource Include="v20\example3.sss" />
   </ItemGroup>
 
   <ItemGroup>

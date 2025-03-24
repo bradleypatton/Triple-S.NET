@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE sss PUBLIC "-//triple-s//DTD Survey Interchange v2.0//EN"
+                     "http://www.triple-s.org/dtd/sss_v20.dtd">
+
+<!-- Triple-S version 2.0 Metadata File Example 3 (Fixed format raw data) -->
+
+<sss version="2.0" modes="interview analysis">
+<!-- introducing modes used to specialise texts at Q2 -->
+
+<date>14 April 2005</date>
+<time>16:00</time>
+<origin>SurveyProg v1.3.05</origin>
+<user>User Site</user>
+
+<survey>
+    <name>SP5201-1</name>
+    <title>Historic House Exit Survey<br/>First Wave</title>
+      
+    <record ident="V">
+      
+        <variable ident="1" type="date">
+        <!-- date variable -->
+            <name>Q1.a</name>
+            <label>Date of visit</label>
+            <position start="7" finish="14"/>
+            <values>
+                <range from="20050101" to="20051231" />
+            </values>
+        </variable>
+         
+        <variable ident="2" type="quantity" use="serial">
+        <!-- serial variable with long name -->
+            <name>RESPONDENT_ID</name>
+            <label>Respondent ID</label>
+            <position start="1" finish="6"/>
+            <values>
+                <range from="000001" to="999999" />
+            </values>
+        </variable>
+
+    </record>
+
+</survey>
+
+</sss>
