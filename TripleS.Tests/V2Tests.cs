@@ -9,6 +9,7 @@ namespace TripleS.Tests {
 	public class V2Tests {
 		S3Root example1;
 		S3Root example2;
+		S3Root example3;
 
 		[TestInitialize()]
 		public void Initialize() {
@@ -18,6 +19,9 @@ namespace TripleS.Tests {
 
 			resource = assembly.GetManifestResourceStream("TripleS.Tests.v20.example2.sss");
 			example2 = S3Serializer.FromStream(resource);
+
+			resource = assembly.GetManifestResourceStream("TripleS.Tests.v20.example3.sss");
+			example3 = S3Serializer.FromStream(resource);
 
 			foreach (var s3Var in example2.Survey.Record.Variables) {
 				// Do something
@@ -65,8 +69,8 @@ namespace TripleS.Tests {
 
 		[TestMethod]
 		public void TestSerialVariable() {
-			var serial = example1.Survey.Record.GetSerialVariable();
-			Assert.AreEqual("1", serial.ID);
+			var serial = example3.Survey.Record.GetSerialVariable();
+			Assert.AreEqual("2", serial.ID);
 		}
 
 		[TestMethod]

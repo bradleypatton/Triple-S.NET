@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml;
 using System.Xml.Serialization;
@@ -24,7 +25,7 @@ namespace TripleS.NET {
 		/// S3VariableFormat
 		/// </summary>
 		[XmlAttribute("format")]
-		[DefaultValue(S3VariableFormat.Literal)]
+		[DefaultValue(S3VariableFormat.Numeric)]
 		public S3VariableFormat Format { get; set; }
 
 		/// <summary>
@@ -39,8 +40,14 @@ namespace TripleS.NET {
 		/// must be of type S3Use
 		/// </summary>
 		[XmlAttribute("use")]
-		[DefaultValue(S3Use.Serial)]
-		public S3Use Use { get; set; }
+		public string UseString
+		{
+			get => Use.HasValue ? Use.Value.ToString() : null;
+			set => Use = string.IsNullOrEmpty(value) ? null : (S3Use)Enum.Parse(typeof(S3Use), value, ignoreCase: true);
+		}
+		public bool ShouldSerializeUseString() => Use.HasValue;
+		[XmlIgnore]
+		public S3Use? Use { get; set; }
 
 		/// <summary>
 		/// Mandatory. The variable_name should represent the name of the variable in 
