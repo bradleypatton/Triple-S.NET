@@ -24,7 +24,7 @@ namespace TripleS.NET {
 		/// S3VariableFormat
 		/// </summary>
 		[XmlAttribute("format")]
-		[DefaultValue(S3VariableFormat.Literal)]
+		[DefaultValue(S3VariableFormat.Numeric)]
 		public S3VariableFormat Format { get; set; }
 
 		/// <summary>
