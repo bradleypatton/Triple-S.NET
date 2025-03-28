@@ -26,7 +26,7 @@ namespace TripleS.NET {
 		/// </summary>
 		[XmlAttribute("format")]
 		[DefaultValue(S3VariableFormat.Numeric)]
-		public S3VariableFormat Format { get; set; }
+		public S3VariableFormat Format { get; set; } = S3VariableFormat.Numeric;
 
 		/// <summary>
 		/// Describes the type of data the variable represents.
