@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using TripleS.NET;
 
@@ -117,6 +118,20 @@ namespace TripleS.Tests {
 			string xml = S3Serializer.ToString(example1);
 
 			Assert.IsTrue(xml.Length > 0);
+		}
+
+		[TestMethod]
+		public void TestVariableFormatDefault()
+		{
+			var variableWithUnspecifiedFormat = example2.Survey.Record.Variables.Single(v => v.Name == "Q2");
+			Assert.AreEqual(S3VariableFormat.Numeric, variableWithUnspecifiedFormat.Format);
+		}
+
+		[TestMethod]
+		public void TestVariableFormatExplicit()
+		{
+			var variableWithSpecifiedFormat = example2.Survey.Record.Variables.Single(v => v.Name == "Q8");
+			Assert.AreEqual(S3VariableFormat.Literal, variableWithSpecifiedFormat.Format);
 		}
 
 		[TestMethod]
