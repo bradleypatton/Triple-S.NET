@@ -12,7 +12,6 @@ namespace TripleS.NET {
 	/// </summary>
 	public class S3FixedFormatReader : IDisposable {
 		private readonly S3Root s3Root;
-		private readonly string filename;
 		private readonly StreamReader fileReader;
 
 		/// <summary>
@@ -30,8 +29,29 @@ namespace TripleS.NET {
 			}
 
 			s3Root = root;
-			filename = filepath;
 			fileReader = new StreamReader(filepath);
+		}
+
+		/// <summary>
+		/// Initialize the reader with a Triple-S survey and the stream of the data file.
+		/// </summary>
+		/// <param name="root">Triple-S survey with the variables specifying fixed field positions</param>
+		/// <param name="fileStream"></param>
+		/// <exception cref="ArgumentException"></exception>
+		public S3FixedFormatReader(S3Root root, Stream fileStream)
+		{
+
+			if (root.Survey.Record.DataFormat != S3Format.Fixed)
+			{
+				throw new ArgumentException("Triple-S survey data format must be fixed field");
+			}
+			if (fileStream == null || !fileStream.CanRead)
+			{
+				throw new ArgumentException("Invalid or unreadable stream provided");
+			}
+
+			s3Root = root;
+			fileReader = new StreamReader(fileStream);
 		}
 
 		/// <summary>
